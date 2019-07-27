@@ -1,14 +1,15 @@
-import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { UPDATE_BOUNDS } from "../actions/filter_actions";
 import { merge } from "lodash";
 
-const usersReducer = (state = {}, action) => {
+
+const filtersReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_CURRENT_USER:
+    case UPDATE_BOUNDS:
       return merge({}, state, { [action.currentUser.id]: action.currentUser });
     default:
       return state;
   }
 };
 
-export default usersReducer;
+export default filtersReducer;
